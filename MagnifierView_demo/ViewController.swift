@@ -49,7 +49,6 @@ class ViewController: UIViewController {
         
         magnifierView = nil
         magnifierView?.removeFromSuperview()
-       // magnifierView?.renderView.removeFromSuperview()
     }
     
     
