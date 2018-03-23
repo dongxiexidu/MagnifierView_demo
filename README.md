@@ -39,7 +39,8 @@ override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // 设置渲染的中心点
         magnifierView!.renderPoint = point
-        
+        }
+        
 ```
 
 ### 3.用完后销毁
