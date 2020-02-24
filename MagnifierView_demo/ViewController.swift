@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         
-        magnifierView = MagnifierView.init()
+        magnifierView = MagnifierView.init(frame: CGRect.zero)
         magnifierView!.scale = 2
         magnifierView!.renderView = view.window
     }
@@ -33,15 +33,14 @@ class ViewController: UIViewController {
         // 获取触摸点
         let touch = touches.first!
         let point = touch.location(in: view)
+        guard let magnifierV = magnifierView else { return }
+        magnifierV.isHidden = false
         
-        magnifierView!.isHidden = false
-        
-        magnifierView!.frame = CGRect.init(x: 0, y: 0, width: magnifieViewWH, height: magnifieViewWH)
-        magnifierView!.center = point
+        magnifierV.frame = CGRect.init(x: 0, y: 0, width: magnifieViewWH, height: magnifieViewWH)
+        magnifierV.center = point
         
         // 设置渲染的中心点
-        magnifierView!.renderPoint = point
-        
+        magnifierV.renderPoint = point
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

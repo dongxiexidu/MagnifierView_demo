@@ -37,12 +37,11 @@ import UIKit
         layer.borderWidth = 1
         layer.borderColor = UIColor.lightGray.cgColor
         
-        //为了居于状态栏之上
-        self.window?.windowLevel = UIWindowLevelStatusBar
+        // 为了居于状态栏之上
+        self.window?.windowLevel = UIWindow.Level.statusBar
         layer.delegate = self
-        //保证和屏幕读取像素的比例一致
+        // 保证和屏幕读取像素的比例一致
         layer.contentsScale = UIScreen.main.scale
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,7 +59,5 @@ import UIKit
         
         renderView.layer.render(in: ctx)
     }
-    
-    
     
 }
