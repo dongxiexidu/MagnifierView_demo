@@ -32,13 +32,14 @@ override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     let touch = touches.first!
     let point = touch.location(in: view)
     
-    magnifierView!.isHidden = false
+    guard let magnifierV = magnifierView else { return }
+    magnifierV.isHidden = false
     
-    magnifierView!.frame = CGRect.init(x: 0, y: 0, width: magnifieViewWH, height: magnifieViewWH)
-    magnifierView!.center = point
+    magnifierV.frame = CGRect.init(x: 0, y: 0, width: magnifieViewWH, height: magnifieViewWH)
+    magnifierV.center = point
     
     // 设置渲染的中心点
-    magnifierView!.renderPoint = point
+    magnifierV.renderPoint = point
 }   
 ```
 
